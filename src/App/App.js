@@ -1,5 +1,6 @@
-import {Component} from "../framework";
-import {Temperature} from "../Temperature";
+import { Component } from "../framework";
+import ComponentFactory from "../framework/ComponentFactory";
+import { Temperature } from "../Temperature";
 
 export default class App extends Component {
   constructor(host) {
@@ -7,47 +8,17 @@ export default class App extends Component {
   }
 
   render() {
-    return [
-      {
-        tag: 'div',
-        classList: 'flex-column',
-        children: [
-          {
-            tag: 'div',
-            innerHTML: 'Weather',
-          },
-          {
-            tag: Temperature,
-            props: {t: -10},
-          },
-          {
-            tag: 'div',
-            classList: 'flex-row',
-            children: [
-              {
-                tag: Temperature,
-                props: {t: -9},
-              },
-              {
-                tag: Temperature,
-                props: {t: -8},
-              },
-              {
-                tag: Temperature,
-                props: {t: -8},
-              },
-              {
-                tag: Temperature,
-                props: {t: -5},
-              },
-              {
-                tag: Temperature,
-                props: {t: -32},
-              },
-            ],
-          }
-        ],
-      },
-    ];
+    return `<div class="flex-column">
+              <div>Weather</div>
+              <Temperature t=-10 unit="C" />
+              <div class="flex-row">
+                  <Temperature t=-9 unit="C"/>
+                  <Temperature t=-8 unit="C" />
+                  <Temperature t=-8 unit="C" />
+                  <Temperature t=-5 unit="C" />
+                  <Temperature t=-32 unit="C" />
+              </div>
+           </div>`;
   }
 }
+ComponentFactory.register(App);

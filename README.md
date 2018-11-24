@@ -37,6 +37,8 @@ Run `parcel index.html` to start server.
  * `rich-render` - add richer render method
    supporting nested components
  * `props` - introduce props to customize component content
+ * `render-components-from-html-string` - parse HTML string
+   and instantiate components from parsed result
 
 [icon-kottans]: https://img.shields.io/badge/%3D(%5E.%5E)%3D-frontend-yellow.svg
 [kottans-frontend]: https://github.com/kottans/frontend

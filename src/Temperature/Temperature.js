@@ -1,4 +1,5 @@
-import {Component} from "../framework";
+import { Component } from "../framework";
+import ComponentFactory from "../framework/ComponentFactory";
 
 export default class Temperature extends Component {
   constructor(host, props) {
@@ -6,6 +7,7 @@ export default class Temperature extends Component {
   }
 
   render() {
-    return this.props.t + '&deg;C';
+    return this.props.t + '&deg;' + this.props.unit;
   }
 }
+ComponentFactory.register(Temperature);
