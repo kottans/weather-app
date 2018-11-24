@@ -18,6 +18,7 @@ export default class App extends Component {
           },
           {
             tag: Temperature,
+            props: {t: -10},
           },
           {
             tag: 'div',
@@ -25,18 +26,23 @@ export default class App extends Component {
             children: [
               {
                 tag: Temperature,
+                props: {t: -9},
               },
               {
                 tag: Temperature,
+                props: {t: -8},
               },
               {
                 tag: Temperature,
+                props: {t: -8},
               },
               {
                 tag: Temperature,
+                props: {t: -5},
               },
               {
                 tag: Temperature,
+                props: {t: -32},
               },
             ],
           }

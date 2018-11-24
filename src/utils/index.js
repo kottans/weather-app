@@ -32,7 +32,7 @@ export const buildDomFragment = (host, elements) => {
       element.classList.add(...elementSpec.classList);
     }
     if (!(typeof elementSpec.tag === 'string')) {
-      new elementSpec.tag(element);
+      new elementSpec.tag(element, elementSpec.props);
     }
     if (elementSpec.children) {
       buildDomFragment(element, elementSpec.children);

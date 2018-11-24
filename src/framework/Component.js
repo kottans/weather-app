@@ -1,8 +1,9 @@
 import {createDomFragment, clearDomChildren, appendDomFragment, buildDomFragment} from "../utils";
 
 export default class Component {
-  constructor(host) {
+  constructor(host, props) {
     this.host = host;
+    this.props = props || {};
     this._render();
   }
 
