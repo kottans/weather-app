@@ -27,6 +27,9 @@ Run `yarn global add parcel-bundler` to install ParcelJS.
 
 Run `parcel index.html` to start server.
 
+## Tags
+
+ * `simplest-app` - simple HTML + embedded JS app
 
 [icon-kottans]: https://img.shields.io/badge/%3D(%5E.%5E)%3D-frontend-yellow.svg
 [kottans-frontend]: https://github.com/kottans/frontend

@@ -1,0 +1,67 @@
+:root {
+    font-family: Helvetica, "Open Sans", Arial, sans-serif;
+}
+
+.flex-column {
+    display: flex;
+    flex-flow: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.weather-today {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.t-switch {
+    margin: 0.3rem;
+    width: 2rem;
+    background-color: #99ccee;
+}
+
+.weather-forecast {
+}
+
+.temperature {
+    width: 4em;
+}
+
+.t-celsius::after {
+    content: "\00b0 C";
+}
+
+.t-fahrenheit::after {
+    content: "\00b0 F";
+}
+
+div#root {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+div {
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    padding: 0.3rem;
+    margin: 0.3rem;
+    color: #333;
+}
+
+body > div > div {
+    border-color: #c99;
+}
+
+body > div > div > div {
+    border-color: #9c9;
+}
+
+body > div > div > div > div {
+    border-color: #99c;
+}
+
