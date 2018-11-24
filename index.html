@@ -11,38 +11,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./src/index.css" />
 </head>
 <body>
-    <div id='root'>
-        <div class="flex-column">
-            <div class="flex-row">
-                <div class="flex-row weather-today temperature t-celsius" data-t-celsius="-10">-10</div>
-                <input id="t-switch" class="t-switch" type="button" value="F" />
-            </div>
-            <div class="flex-row">
-                <div class="flex-row weather-forecast temperature t-celsius" data-t-celsius="-9">-9</div>
-                <div class="flex-row weather-forecast temperature t-celsius" data-t-celsius="-9">-9</div>
-                <div class="flex-row weather-forecast temperature t-celsius" data-t-celsius="-8">-8</div>
-                <div class="flex-row weather-forecast temperature t-celsius" data-t-celsius="-5">-5</div>
-                <div class="flex-row weather-forecast temperature t-celsius" data-t-celsius="-32">-32</div>
-            </div>
-        </div>
-    </div>
-    <script>
-      document.getElementById('t-switch').addEventListener('click', switchTemperatureUnits);
-
-      function switchTemperatureUnits(e) {
-        var tUnitNew = e.target.value;
-        e.target.value = tUnitNew === 'C' ? 'F' : 'C';
-        document.querySelectorAll('.temperature').forEach(element => {
-          element.classList.toggle('t-celsius');
-          element.classList.toggle('t-fahrenheit');
-          var celsius = element.getAttribute('data-t-celsius');
-          element.innerText = tUnitNew === 'C' ? celsius : toFahrenheit(celsius);
-        });
-      }
-
-      function toFahrenheit(celsius) {
-        return Math.round(celsius * 9/5 + 32);
-      }
-    </script>
+    <div id='root'></div>
 </body>
+<script src="./src/index.js"></script>
 </html>
