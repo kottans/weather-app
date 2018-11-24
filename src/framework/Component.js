@@ -1,3 +1,5 @@
+import {createDomFragment, clearDomChildren, appendDomFragment, buildDomFragment} from "../utils";
+
 export default class Component {
   constructor(host) {
     this.host = host;
@@ -9,6 +11,13 @@ export default class Component {
   }
 
   _render() {
-    this.host.innerHTML = this.render();
+    let rendered = this.render();
+    if (typeof rendered === 'string') {
+      rendered = createDomFragment(rendered);
+    }
+    if (Array.isArray(rendered) && rendered[0].tag) {
+      rendered = buildDomFragment(document.createDocumentFragment(), rendered);
+    }
+    appendDomFragment(clearDomChildren(this.host), rendered);
   }
 }

@@ -34,6 +34,8 @@ Run `parcel index.html` to start server.
 
  * `simplest-app` - simple HTML + embedded JS app
  * `minimalistic-component` - introducing Component
+ * `rich-render` - add richer render method
+   supporting nested components
 
 [icon-kottans]: https://img.shields.io/badge/%3D(%5E.%5E)%3D-frontend-yellow.svg
 [kottans-frontend]: https://github.com/kottans/frontend
