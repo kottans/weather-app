@@ -1,6 +1,7 @@
 import { Component } from "../framework";
 import ComponentFactory from "../framework/ComponentFactory";
 import { Temperature } from "../Temperature";
+import { Counter } from "../Counter";
 
 export default class App extends Component {
   constructor(host) {
@@ -9,7 +10,10 @@ export default class App extends Component {
 
   render() {
     return `<div class="flex-column">
-              <div>Weather</div>
+              <div>
+                Weather
+                <Counter count=5 />
+              </div>
               <Temperature t=-10 unit="C" />
               <div class="flex-row">
                   <Temperature t=-9 unit="C"/>

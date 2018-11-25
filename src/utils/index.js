@@ -41,3 +41,15 @@ export const buildDomFragment = (host, elements) => {
   });
   return host;
 };
+
+export const bindScope = (scope, ...names) => {
+  names.forEach(name => {
+    if (typeof scope[name] === 'function') {
+      scope[name] = scope[name].bind(scope);
+    } else {
+      throw Error(
+        `Expected ${name} to be a function. Instead ${name} is ${typeof scope[name]}`
+      );
+    }
+  });
+};

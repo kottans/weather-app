@@ -5,6 +5,7 @@ export default class Component {
   constructor(host, props) {
     this.host = host;
     this.props = props || {};
+    this.state = {};
     this._render();
   }
 
@@ -12,10 +13,15 @@ export default class Component {
     return '';
   }
 
+  updateState(partialState) {
+    this.state = Object.assign({}, this.state, partialState);
+    this._render();
+  }
+
   _render() {
     let rendered = this.render();
     if (typeof rendered === 'string') {
-      rendered = Component._createDomFragment(rendered);
+      rendered = this._createDomFragment(rendered);
     }
     if (Array.isArray(rendered) && rendered[0].tag) {
       rendered = buildDomFragment(document.createDocumentFragment(), rendered);
@@ -23,7 +29,7 @@ export default class Component {
     appendDomFragment(clearDomChildren(this.host), rendered);
   }
 
-  static _createDomFragment(string) {
+  _createDomFragment(string) {
     const template = document.createElement('template');
 
     let componentCount = 0;
@@ -52,6 +58,23 @@ export default class Component {
     });
     template.innerHTML = string;
 
+    // manage event handlers
+    const eventTypes = ['click', 'mouseup', 'mousedown', 'mouseover', 'mousein', 'mouseout',
+      'change', 'input', 'keyup', 'keydown',
+      'focus', 'blur'
+    ];
+    const elementsWithListeners = template.content.querySelectorAll([eventTypes].map(eventType => 'on-' + eventType));
+    elementsWithListeners.forEach(element => {
+      eventTypes.forEach(eventType => {
+        if (element.hasAttribute('on-' + eventType)) {
+          let handlerName = element.getAttribute('on-' + eventType).match(/{(.*)}/)[1];
+          handlerName = handlerName.split('.').filter(segment => segment !== 'this').join('.');
+          element.addEventListener(eventType, this[handlerName].bind(this));
+        }
+      });
+    });
+
+    // render mapped components
     Object.keys(componentMap).forEach(id => {
       let host = template.content.querySelector('#' + id);
       const cls = ComponentFactory.get(componentMap[id].name);
