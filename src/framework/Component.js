@@ -46,7 +46,11 @@ export default class Component {
       if (p2.length) {
         const paramsRegex = /(\S+)=['"]?((?:(?!\/>|>|"|'|\s).)+)/g;
         while ((parsingResults = paramsRegex.exec(p2)) !== null) {
-          props[parsingResults[1]] = parsingResults[2];
+          let objectPropertyName = parsingResults[2].match(/{(.*)}/);
+          const propValue = objectPropertyName
+            ? this[objectPropertyName[1].split('.').filter(segment => segment !== 'this').join('.')]
+            : parsingResults[2];
+          props[parsingResults[1]] = propValue;
         }
       }
 

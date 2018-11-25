@@ -40,6 +40,8 @@ Run `parcel index.html` to start server.
  * `render-components-from-html-string` - parse HTML string
    and instantiate components from parsed result
  * `encapsulated-state` - introduce component state
+ * `state-back-propagation` - handle parent callbacks
+   to propagate data (state) back to parent
 
 [icon-kottans]: https://img.shields.io/badge/%3D(%5E.%5E)%3D-frontend-yellow.svg
 [kottans-frontend]: https://github.com/kottans/frontend
