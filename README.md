@@ -32,6 +32,16 @@ Run `parcel index.html` to start server.
 
 ## Tags
 
+Explore incremental changes between tagged commits employing
+git GUI or following git commands:
+ * `git diff --name-status earlierTag laterTag`
+   to list affected files
+ * `git diff earlierTag laterTag`
+   to explore changes to affected files
+ * `git diff earlierTag laterTag -- filepath1 filepath2`
+   to explore changes to specified files
+
+Tags:
  * `simplest-app` - simple HTML + embedded JS app
  * `minimalistic-component` - introducing Component
  * `rich-render` - add richer render method
