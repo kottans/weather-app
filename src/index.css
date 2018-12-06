@@ -13,32 +13,6 @@
     justify-content: center;
 }
 
-.weather-today {
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-.t-switch {
-    margin: 0.3rem;
-    width: 2rem;
-    background-color: #99ccee;
-}
-
-.weather-forecast {
-}
-
-.temperature {
-    width: 4em;
-}
-
-.t-celsius::after {
-    content: "\00b0 C";
-}
-
-.t-fahrenheit::after {
-    content: "\00b0 F";
-}
-
 div#root {
     display: flex;
     flex-flow: row;

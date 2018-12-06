@@ -14,12 +14,8 @@ micro-framework development. This repo doesn't
 contain the complete weather app code but rather
 some boilerplate code.
 
-This project contains no production dependencies
-while requires ES6 compliant browser.
-So just open `index.html` with your browser
-of the most recent version to have the app up and running.
-
-You may want to employ [ParcelJS](https://parceljs.org/)
+The codebase is ready to be run by
+[ParcelJS](https://parceljs.org/)
 a zero configuration web app bundler that supports
 [HMR](https://parceljs.org/hmr.html).
 
@@ -29,7 +25,8 @@ Run `parcel index.html` to start server.
 
 ## Tags
 
- * `simplest-app` - simple HTML + embedded JS app
+ * `s00-simplest-app` - simple HTML + embedded JS app
+ * `s10-app-boilerplate` - app boilerplate, ready for new development
 
 [icon-kottans]: https://img.shields.io/badge/%3D(%5E.%5E)%3D-frontend-yellow.svg
 [kottans-frontend]: https://github.com/kottans/frontend
