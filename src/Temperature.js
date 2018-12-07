@@ -1,9 +1,14 @@
-export default class Temperature {
+import Component from "./Component.js";
+export default class Temperature extends Component {
   /**
    * Instantiates Temperature component
    * @param {HTMLElement} host
    */
   constructor(host) {
-    host.innerHTML = "37&deg;C";
+    super(host);
+  }
+
+  render() {
+    return "37&deg;C";
   }
 }
