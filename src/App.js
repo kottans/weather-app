@@ -11,29 +11,14 @@ export default class App extends Component {
   }
 
   render() {
-    const titleContainer = document.createElement('div');
-    titleContainer.innerHTML = 'Weather';
-
-    const temperatureContainer = document.createElement('div');
-    new Temperature(temperatureContainer);
-
-    const vDOM = [
-      document.createElement('div'),
-      titleContainer,
-      'Weather',
-      temperatureContainer,
-      Temperature,
+    return [
       {
         tag: 'div',
-        innerHTML: 'Something',
+        innerHTML: 'Weather',
       },
       {
         tag: Temperature,
       },
     ];
-
-
-    // TODO: remove unnecessary elements
-    return vDOM;
   }
 }

@@ -1,3 +1,5 @@
+import { clearDomChildren } from "./utils";
+
 export default class Component {
   constructor(host) {
     this.host = host;
@@ -18,7 +20,7 @@ export default class Component {
       content = [ content ];
     }
     // expect content to be an array of HTMLElements, strings, Components, and structured objects
-    Component._appendChildren(this.host, content);
+    Component._appendChildren(clearDomChildren(this.host), content);
   }
 
   static _appendChildren(host, children) {
