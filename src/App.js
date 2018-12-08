@@ -11,15 +11,13 @@ export default class App extends Component {
   }
 
   render() {
-    const childrenContainer = document.createElement('div');
-
     const titleContainer = document.createElement('div');
     titleContainer.innerHTML = 'Weather';
+
     const temperatureContainer = document.createElement('div');
     new Temperature(temperatureContainer);
-    [titleContainer, temperatureContainer].forEach(element => childrenContainer.appendChild(element));
 
-    // TODO: Get rid of excessive container
-    return childrenContainer;
+    // TODO: render from vDOM
+    return [titleContainer, temperatureContainer];
   }
 }
