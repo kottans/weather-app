@@ -57,9 +57,13 @@ export default class Component {
           element = document.createElement(child.tag);
         } else {
           element = document.createElement('div');
+          // TODO: parse and feed props
           new child.tag(element);
         }
         if (child.innerHTML) element.innerHTML = child.innerHTML;
+        if (child.id) element.id = child.id;
+        if (child.classList) element.classList.add(typeof child.classList === 'string' ? child.classList.split(' ') : child.classList );
+        if (child.children) Component._appendChildren(element, child.children);
       }
       element && host.appendChild(element);
     });
