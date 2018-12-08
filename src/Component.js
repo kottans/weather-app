@@ -18,36 +18,48 @@ export default class Component {
       content = [ content ];
     }
     // expect content to be an array of HTMLElements, strings, Components, and structured objects
-    content.forEach(item => {
+    Component._appendChildren(this.host, content);
+  }
+
+  static _appendChildren(host, children) {
+    children.forEach(child => {
       let element = null;
-      switch(Component._getItemType(item)) {
+      let elementType = Component._getItemType(child);
+      switch(elementType) {
         case 'string':
-          element = document.createElement('div');
-          element.innerHTML = item;
+          child = {
+            tag: 'div',
+            innerHTML: child,
+          };
+          elementType = 'object';
           break;
         case 'element':
-          element = item;
+          element = child;
           break;
         case 'function':
           // is Component constructor
-          element = document.createElement('div');
-          new item(element);
+          child = {
+            tag: child,
+          };
+          elementType = 'object';
           break;
         case 'object':
-          // is an object defining HTMLElement or Component
-          if (typeof item.tag === 'string') {
-            element = document.createElement(item.tag);
-          } else {
-            element = document.createElement('div');
-            new item.tag(element);
-          }
-          if (item.innerHTML) element.innerHTML = item.innerHTML;
           break;
         default:
-          console.error('Unknown item type', Component._getItemType(item), 'for', item, 'in (see trace below)');
+          console.error('Unknown item type', Component._getItemType(child), 'for', child, 'in (see trace below)');
           console.trace();
       }
-      element && this.host.appendChild(element);
+      if (elementType === 'object') {
+        // is an object defining HTMLElement or Component
+        if (typeof child.tag === 'string') {
+          element = document.createElement(child.tag);
+        } else {
+          element = document.createElement('div');
+          new child.tag(element);
+        }
+        if (child.innerHTML) element.innerHTML = child.innerHTML;
+      }
+      element && host.appendChild(element);
     });
   }
 
