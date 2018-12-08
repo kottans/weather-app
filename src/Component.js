@@ -9,15 +9,32 @@ export default class Component {
   }
 
   _render() {
-    const content = this.render();
+    let content = this.render();
     if (typeof content === 'string') {
       this.host.innerHTML = content;
-    } else if (Array.isArray(content)) {
-      // expect content to be an array of HTMLElements
-      content.forEach(element => this.host.appendChild(element));
-    } else {
-      // expect content to be an HTMLElement
-      this.host.appendChild(content);
+      return;
     }
+    if (!Array.isArray(content)) {
+      content = [ content ];
+    }
+    // expect content to be an array of HTMLElements
+    content.forEach(item => {
+      let element = null;
+      switch(Component._getItemType(item)) {
+        case 'string':
+          element = document.createElement('div');
+          element.innerHTML = item;
+          break;
+        case 'element':
+          element = item;
+          break;
+      }
+      element && this.host.appendChild(element);
+    });
+  }
+
+  static _getItemType(item) {
+    if (typeof item === 'string') return 'string';
+    if (item instanceof Element || item instanceof HTMLDocument) return 'element';
   }
 }

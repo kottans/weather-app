@@ -17,7 +17,15 @@ export default class App extends Component {
     const temperatureContainer = document.createElement('div');
     new Temperature(temperatureContainer);
 
-    // TODO: render from vDOM
-    return [titleContainer, temperatureContainer];
+    const vDOM = [
+      document.createElement('div'),
+      titleContainer,
+      'Weather',
+      temperatureContainer,
+    ];
+
+
+    // TODO: remove unnecessary elements
+    return vDOM;
   }
 }
