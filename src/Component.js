@@ -28,13 +28,20 @@ export default class Component {
         case 'element':
           element = item;
           break;
+        case 'function':
+          // is Component constructor
+          element = document.createElement('div');
+          new item(element);
+          break;
+        default:
+          console.log(element, Component._getItemType(item));
       }
       element && this.host.appendChild(element);
     });
   }
 
   static _getItemType(item) {
-    if (typeof item === 'string') return 'string';
     if (item instanceof Element || item instanceof HTMLDocument) return 'element';
+    return typeof item;
   }
 }
