@@ -17,7 +17,7 @@ export default class Component {
     if (!Array.isArray(content)) {
       content = [ content ];
     }
-    // expect content to be an array of HTMLElements
+    // expect content to be an array of HTMLElements, strings, Components, and structured objects
     content.forEach(item => {
       let element = null;
       switch(Component._getItemType(item)) {
@@ -33,8 +33,19 @@ export default class Component {
           element = document.createElement('div');
           new item(element);
           break;
+        case 'object':
+          // is an object defining HTMLElement or Component
+          if (typeof item.tag === 'string') {
+            element = document.createElement(item.tag);
+          } else {
+            element = document.createElement('div');
+            new item.tag(element);
+          }
+          if (item.innerHTML) element.innerHTML = item.innerHTML;
+          break;
         default:
-          console.log(element, Component._getItemType(item));
+          console.error('Unknown item type', Component._getItemType(item), 'for', item, 'in (see trace below)');
+          console.trace();
       }
       element && this.host.appendChild(element);
     });

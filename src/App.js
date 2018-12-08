@@ -23,6 +23,13 @@ export default class App extends Component {
       'Weather',
       temperatureContainer,
       Temperature,
+      {
+        tag: 'div',
+        innerHTML: 'Something',
+      },
+      {
+        tag: Temperature,
+      },
     ];
 
 
