@@ -18,10 +18,20 @@ The codebase is ready to be run by
 [ParcelJS](https://parceljs.org/)
 a zero configuration web app bundler that supports
 [HMR](https://parceljs.org/hmr.html).
+Run `yarn global add parcel-bundler` to install ParcelJS
+in a global scope.
 
-Run `yarn global add parcel-bundler` to install ParcelJS.
+[push-dir](https://www.npmjs.com/package/push-dir)
+is used to publish app on gh-pages.
+Run `yarn global add push-dir` to install `push-dir`
+in a global scope.
 
-Run `parcel index.html` to start server.
+## Development
+
+Commands:
+ - `yarn start` to start development server
+ - `yarn build` to build app ready for publishing
+ - `yarn publish` to publish built app on GitHub pages
 
 ## Tags
 
