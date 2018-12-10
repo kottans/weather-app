@@ -15,6 +15,7 @@ class Component {
     if (!Array.isArray(content)) {
       content = [ content ];
     }
+    this.host.innerHTML = '';
     content.map(item => {
       let itemType = typeof item;
       let element;
@@ -56,10 +57,10 @@ class App extends Component {
       'Weather',
       Temperature,
       document.createElement('div'),
-      {
+      /* {
         tag: Temperature,
         className: 'flex-row',
-      },
+      }, */
     ];
     return vDOM;
   }
