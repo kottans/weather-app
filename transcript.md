@@ -50,6 +50,7 @@ What to install before we start:
 1. Introduce `Component._render()` to render string and array of HTMLElements
 1. `Component._render()`: add `item => [ item ]`
 1. Split `index.js` into files per component
+   (`Component` => `framework.js` to supplement fw with more features later)
 1. Introduce `Component._appendChildren()`
 1. Introduce `{tag:string|class|htmlElement}`, `Component._detectType`
 
@@ -83,9 +84,10 @@ What to install before we start:
 
 ### Development part 2a
 
-1. State
+1. Present JSX parsing
+1. Introduce component state
 1. Callback for back propagation
-1. Global State
+1. Introduce Global State (`useGlobalState`)
 1. Fetch
 
 ### Chores
