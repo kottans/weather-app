@@ -8,6 +8,9 @@ An educational app built on custom components.
 ## Installation
 
 Fork-and-clone or clone this repo.
+Run `yarn install` or `npm install` to have
+development dependencies installed and
+to enjoy building scripts.
 
 Navigate between tags to explore incremental
 micro-framework development. This repo doesn't
@@ -26,9 +29,13 @@ The codebase is ready for running with
 a zero configuration web app bundler that supports
 [HMR](https://parceljs.org/hmr.html).
 
-Run `yarn global add parcel-bundler` to install ParcelJS.
+Run
+ * `yarn global add parcel-bundler` to install ParcelJS
+ * `yarn start` or `parcel index.html` to start server
+ * `yarn build` to build distribution for publication
+ * `yarn push-gh-pages` to publish built app on GitHub pages
+   (you will need
 
-Run `parcel index.html` to start server.
 
 ## Tags
 
